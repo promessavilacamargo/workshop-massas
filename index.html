@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workshop de Massas · Ministério de Mulheres Vila Camargo</title>
+<meta name="description" content="Inscrição para o Workshop de Massas com a Chef Bruna de Oliveira — domingo, 08 de novembro, a partir das 9h30. Evento para mulheres.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    color-scheme: light dark;
+    --bg:#f5f3ee;
+    --surface:#ffffff;
+    --surface-2:#fbf3e2;
+    --ink:#14213d;
+    --muted:#5f6b85;
+    --line:#e4dccb;
+    --accent:#e0a12f;
+    --accent-deep:#9a6a12;
+    --accent-ink:#14213d;
+    --navy-1:#1c2c4e;
+    --navy-2:#111b33;
+    --shadow: 0 20px 40px -24px rgba(20,33,61,0.35);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0e1629;
+      --surface:#16213b;
+      --surface-2:#1c2a47;
+      --ink:#f1ede4;
+      --muted:#a9b3c9;
+      --line:#2c3b5e;
+      --accent:#e8b04a;
+      --accent-deep:#e8b04a;
+      --accent-ink:#111b33;
+      --navy-1:#1c2c4e;
+      --navy-2:#0a1224;
+      --shadow: 0 20px 40px -20px rgba(0,0,0,0.55);
+    }
+  }
+
+  *{box-sizing:border-box;}
+  html, body{ margin:0; padding:0; }
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Poppins", system-ui, sans-serif;
+    padding-inline:16px;
+    padding-block:32px;
+  }
+  img{ max-width:100%; }
+  .page{ max-width:620px; margin:0 auto; display:flex; flex-direction:column; gap:18px; }
+
+  /* ---------- Header ---------- */
+  .header{
+    background:linear-gradient(160deg, var(--navy-1), var(--navy-2));
+    color:#f1ede4;
+    border-radius:20px;
+    padding:28px 24px 26px;
+    text-align:center;
+    box-shadow:var(--shadow);
+  }
+  .header .logo-pill{
+    display:inline-block;
+    background:#fff;
+    border-radius:999px;
+    padding:8px 20px;
+    margin-bottom:16px;
+  }
+  .header .logo-pill img{ width:min(200px, 60vw); height:auto; display:block; }
+  .header .eyebrow{
+    font-size:0.78rem;
+    letter-spacing:0.3em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:700;
+  }
+  .header h1{
+    font-family:"Playfair Display", Georgia, serif;
+    font-weight:800;
+    font-size:clamp(2.8rem, 13vw, 4rem);
+    margin:2px 0 6px;
+    line-height:1;
+    color:#e8b04a;
+  }
+  .header .tagline{ font-size:1rem; line-height:1.5; margin:0; }
+  .header .tagline strong{ font-weight:700; }
+  .women-badge{
+    display:inline-block;
+    margin-top:16px;
+    background:var(--accent);
+    color:#111b33;
+    font-weight:700;
+    font-size:0.9rem;
+    border-radius:999px;
+    padding:8px 16px;
+  }
+
+  /* ---------- Info card ---------- */
+  .ticket{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:22px;
+    box-shadow:var(--shadow);
+  }
+  .ticket-row{ display:flex; flex-wrap:wrap; gap:18px; }
+  .ticket-item{ flex:1 1 140px; min-width:0; }
+  .label{
+    font-size:0.7rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    font-weight:700;
+    margin-bottom:4px;
+  }
+  .ticket-item .value{ font-weight:700; font-size:1.1rem; line-height:1.3; }
+  .ticket-item .sub{ font-size:0.88rem; color:var(--muted); }
+  .menu{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:18px;
+  }
+  .menu div{
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:12px 14px;
+    font-size:0.92rem;
+    line-height:1.45;
+  }
+  .ticket-note{
+    margin-top:16px;
+    padding-top:14px;
+    border-top:2px dashed var(--line);
+    font-size:0.92rem;
+    line-height:1.5;
+  }
+  .ticket-note strong{ color:var(--accent-deep); }
+
+  /* ---------- Payment card ---------- */
+  .payment{
+    background:var(--surface-2);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:20px 22px;
+  }
+  .payment h2, .confirm h2{
+    font-family:"Playfair Display", Georgia, serif;
+    font-weight:700;
+    font-size:1.4rem;
+    margin:0 0 12px;
+  }
+  .pix-row{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:10px 12px;
+    flex-wrap:wrap;
+  }
+  .pix-key{ font-weight:600; font-size:1rem; word-break:break-all; flex:1 1 auto; }
+  .copy-btn{
+    border:1px solid var(--accent-deep);
+    background:transparent;
+    color:var(--accent-deep);
+    font-family:inherit;
+    font-weight:600;
+    font-size:0.82rem;
+    padding:7px 12px;
+    border-radius:999px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .copy-btn:active{ transform:scale(0.97); }
+  .payment p{ margin:12px 0 0; font-size:0.92rem; color:var(--muted); line-height:1.5; }
+  .attn-callout{
+    margin-top:14px;
+    background:var(--navy-1);
+    color:#f1ede4;
+    border-radius:14px;
+    padding:14px 16px;
+    text-align:center;
+    font-size:0.95rem;
+    line-height:1.5;
+  }
+  .attn-link{ color:#e8b04a; font-weight:700; font-size:1.15rem; letter-spacing:0.02em; }
+
+  /* ---------- Form ---------- */
+  form{ display:flex; flex-direction:column; gap:22px; }
+  fieldset{
+    margin:0;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:20px 22px 22px;
+    box-shadow:var(--shadow);
+  }
+  legend{
+    float:left;
+    width:100%;
+    font-size:0.72rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--accent-deep);
+    font-weight:700;
+    border-bottom:1px solid var(--line);
+    padding:0 0 10px;
+    margin-bottom:14px;
+  }
+  .field{ clear:both; display:flex; flex-direction:column; gap:6px; margin-bottom:16px; }
+  .field:last-child{ margin-bottom:0; }
+  .field label{ font-size:0.9rem; font-weight:600; }
+  .hint{ font-size:0.8rem; color:var(--muted); font-weight:400; }
+  input{
+    font-family:inherit;
+    font-size:1rem;
+    color:var(--ink);
+    background:var(--bg);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:11px 12px;
+    width:100%;
+  }
+  input:focus{ outline:2px solid var(--accent); outline-offset:1px; }
+
+  .submit-row{ display:flex; flex-direction:column; gap:10px; align-items:center; text-align:center; }
+  .btn-primary{
+    width:100%;
+    background:var(--accent);
+    color:#111b33;
+    font-family:inherit;
+    font-weight:700;
+    font-size:1.05rem;
+    border:none;
+    border-radius:999px;
+    padding:15px 20px;
+    cursor:pointer;
+  }
+  .btn-primary:active{ transform:scale(0.99); }
+  .fine{ font-size:0.82rem; color:var(--muted); }
+
+  /* ---------- Confirmation ---------- */
+  .confirm{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:28px 24px;
+    text-align:center;
+    box-shadow:var(--shadow);
+  }
+  .confirm .emoji{ font-size:2.6rem; margin-bottom:8px; }
+  .confirm p{ color:var(--muted); font-size:0.95rem; line-height:1.55; margin:0 0 20px; }
+  .wa-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    background:#25D366;
+    color:#0b3b23;
+    font-weight:700;
+    font-size:1rem;
+    text-decoration:none;
+    border-radius:999px;
+    padding:15px 20px;
+  }
+  .secondary-row{ display:flex; gap:10px; justify-content:center; margin-top:14px; flex-wrap:wrap; }
+  .link-btn{
+    background:none;
+    border:none;
+    color:var(--accent-deep);
+    font-family:inherit;
+    font-weight:600;
+    font-size:0.88rem;
+    cursor:pointer;
+    text-decoration:underline;
+    padding:6px;
+  }
+
+  [hidden]{ display:none !important; }
+
+  .toast{
+    position:fixed;
+    left:50%;
+    bottom:24px;
+    transform:translateX(-50%);
+    background:var(--ink);
+    color:var(--bg);
+    padding:10px 18px;
+    border-radius:999px;
+    font-size:0.85rem;
+    font-weight:600;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity 0.25s ease;
+    z-index:10;
+  }
+  .toast.show{ opacity:1; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="header">
+    <div class="logo-pill"><img src="logo.png" alt="Ministério de Mulheres Vila Camargo"></div>
+    <div class="eyebrow">Workshop de</div>
+    <h1>Massas</h1>
+    <p class="tagline">Venha aprender, provar e se deliciar<br>com a <strong>Chef Bruna de Oliveira</strong> 👩‍🍳</p>
+    <div class="women-badge">Evento exclusivo para mulheres 💗</div>
+  </header>
+
+  <section class="ticket" aria-label="Informações do evento">
+    <div class="ticket-row">
+      <div class="ticket-item">
+        <div class="label">Quando</div>
+        <div class="value">Domingo, 08 de novembro</div>
+        <div class="sub">a partir das 9h30</div>
+      </div>
+      <div class="ticket-item">
+        <div class="label">Onde</div>
+        <div class="value">Promessa Vila Camargo</div>
+        <div class="sub">Av. Florianópolis, 829 — Cajuru</div>
+      </div>
+      <div class="ticket-item">
+        <div class="label">Inscrição</div>
+        <div class="value">R$ 30,00</div>
+      </div>
+    </div>
+    <div class="menu">
+      <div><div class="label">🍝 Massas</div>Macarrão, Talharim e Nhoque</div>
+      <div><div class="label">🥣 Molhos</div>Bolognesa, Bechamel e Chocolate</div>
+    </div>
+    <div class="ticket-note">Quem participar vai <strong>degustar as massas e os molhos como almoço!</strong> 😋</div>
+  </section>
+
+  <section class="payment">
+    <h2>Como pagar</h2>
+    <div class="pix-row">
+      <span class="pix-key" id="pixKey">iapvc55@gmail.com</span>
+      <button type="button" class="copy-btn" id="copyPixBtn">Copiar chave</button>
+    </div>
+    <p>Chave Pix (e-mail) no valor de <strong>R$ 30,00</strong>. Depois de pagar, guarde o comprovante.</p>
+    <div class="attn-callout">📌 Envie o comprovante e sua inscrição para a <strong>Keli</strong> no WhatsApp:<br><a class="attn-link" href="https://wa.me/5541984304084" target="_blank" rel="noopener">41 98430-4084</a></div>
+  </section>
+
+  <form id="regForm" novalidate>
+    <fieldset>
+      <legend>Seus dados</legend>
+      <div class="field">
+        <label for="nome">Nome completo *</label>
+        <input type="text" id="nome" name="nome" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="telefone">WhatsApp *</label>
+        <input type="tel" id="telefone" name="telefone" autocomplete="tel" placeholder="(41) 9xxxx-xxxx" required>
+      </div>
+      <div class="field">
+        <label for="igreja">Igreja ou congregação que frequenta</label>
+        <input type="text" id="igreja" name="igreja">
+      </div>
+      <div class="field">
+        <label for="convidou">Quem te convidou? <span class="hint">(caso não seja da nossa igreja)</span></label>
+        <input type="text" id="convidou" name="convidou">
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Confirmação do pagamento</legend>
+      <div class="field">
+        <label for="titular">Nome do titular da conta usada no Pix</label>
+        <span class="hint">Se o pagamento for feito pela conta do marido, mãe ou outra pessoa, isso ajuda a Keli a encontrar o seu Pix.</span>
+        <input type="text" id="titular" name="titular">
+      </div>
+    </fieldset>
+
+    <div class="submit-row">
+      <button type="submit" class="btn-primary">Continuar e enviar no WhatsApp</button>
+      <div class="fine">Sua vaga está a um passo! 🍝</div>
+    </div>
+  </form>
+
+  <section class="confirm" id="confirmSection" hidden>
+    <div class="emoji">🍝</div>
+    <h2 id="confirmName">Inscrição pronta!</h2>
+    <p>Toque no botão abaixo para enviar seus dados no WhatsApp da <strong>Keli</strong>. Depois, envie também o comprovante do Pix na mesma conversa para confirmar sua vaga.</p>
+    <a class="wa-btn" id="waSendBtn" href="#" target="_blank" rel="noopener">Enviar inscrição no WhatsApp</a>
+    <div class="secondary-row">
+      <button type="button" class="link-btn" id="copyTextBtn">Copiar texto da inscrição</button>
+      <button type="button" class="link-btn" id="editBtn">Editar respostas</button>
+    </div>
+  </section>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  var form = document.getElementById('regForm');
+  var confirmSection = document.getElementById('confirmSection');
+  var toast = document.getElementById('toast');
+  var KELI_NUMBER = '5541984304084';
+  // URL /exec do Apps Script da planilha "Inscrições Workshop de Massas" (vazio = ainda não ligado)
+  var SHEET_ENDPOINT = '';
+
+  var DRAFT_KEY = 'workshop-massas-draft-v1';
+  var fields = ['nome','telefone','igreja','convidou','titular'];
+
+  function showToast(msg){
+    toast.textContent = msg;
+    toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+  }
+
+  function saveDraft(){
+    try{
+      var data = {};
+      fields.forEach(function(id){ data[id] = document.getElementById(id).value; });
+      localStorage.setItem(DRAFT_KEY, JSON.stringify(data));
+    }catch(e){}
+  }
+
+  function loadDraft(){
+    try{
+      var raw = localStorage.getItem(DRAFT_KEY);
+      if(!raw) return;
+      var data = JSON.parse(raw);
+      fields.forEach(function(id){ if(data[id]) document.getElementById(id).value = data[id]; });
+    }catch(e){}
+  }
+
+  loadDraft();
+  fields.forEach(function(id){ document.getElementById(id).addEventListener('input', saveDraft); });
+
+  document.getElementById('copyPixBtn').addEventListener('click', function(){
+    var key = document.getElementById('pixKey').textContent.trim();
+    try{
+      navigator.clipboard.writeText(key).then(function(){
+        showToast('Chave Pix copiada!');
+      }).catch(function(){ showToast('Toque e segure para copiar a chave.'); });
+    }catch(e){ showToast('Toque e segure para copiar a chave.'); }
+  });
+
+  function buildMessage(v){
+    return [
+      'Olá Keli! Aqui está minha inscrição para o *Workshop de Massas* 🍝',
+      '',
+      '*Nome completo:* ' + v.nome,
+      '*WhatsApp:* ' + v.telefone,
+      '*Igreja/congregação:* ' + (v.igreja || '—'),
+      '*Quem me convidou:* ' + (v.convidou || '—'),
+      '*Titular da conta Pix usada no pagamento:* ' + (v.titular || '—'),
+      '',
+      'Já vou enviar o comprovante do Pix (R$ 30,00) aqui em seguida. 💛'
+    ].join('\n');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!form.checkValidity()){
+      form.reportValidity();
+      return;
+    }
+    var v = {};
+    fields.forEach(function(id){ v[id] = document.getElementById(id).value.trim(); });
+
+    var message = buildMessage(v);
+    var waLink = 'https://wa.me/' + KELI_NUMBER + '?text=' + encodeURIComponent(message);
+
+    if(SHEET_ENDPOINT){
+      try{
+        fetch(SHEET_ENDPOINT, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(v)
+        });
+      }catch(e){}
+    }
+
+    document.getElementById('waSendBtn').setAttribute('href', waLink);
+    document.getElementById('confirmName').textContent = 'Tudo pronto, ' + (v.nome.split(' ')[0] || '') + '!';
+    document.getElementById('copyTextBtn').onclick = function(){
+      try{
+        navigator.clipboard.writeText(message).then(function(){
+          showToast('Texto copiado!');
+        }).catch(function(){ showToast('Não foi possível copiar automaticamente.'); });
+      }catch(e){ showToast('Não foi possível copiar automaticamente.'); }
+    };
+
+    form.hidden = true;
+    confirmSection.hidden = false;
+    confirmSection.scrollIntoView({behavior:'smooth', block:'start'});
+
+    try{ localStorage.removeItem(DRAFT_KEY); }catch(e){}
+  });
+
+  document.getElementById('editBtn').addEventListener('click', function(){
+    confirmSection.hidden = true;
+    form.hidden = false;
+    form.scrollIntoView({behavior:'smooth', block:'start'});
+  });
+})();
+</script>
+</body>
+</html>
